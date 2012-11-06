@@ -1,0 +1,1 @@
+java -classpath "c:\SchoolSystem.jar" -jar SchoolSystem.jar

@@ -1,0 +1,29 @@
+Cadastro de Aluno 
+ - PESSOA(
+    Codigo
+	nome, 
+	cpf, 
+	identicade,
+	ENDERECO(rua,
+	   numero,
+	   cidade,
+	   uf,
+	   telefone, 
+	   celular,
+	   email
+	   )
+	)
+ - CURSO
+ 
+Cadastro Curso
+ - Codigo
+ - Nome
+ 
+Cadastro Disciplina
+ - Codigo
+ - Nome
+ - CURSO
+ 
+Cadastro Professor
+ - PESSOA(...)
+ - DISCIPLINA
