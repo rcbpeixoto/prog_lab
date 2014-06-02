@@ -101,38 +101,41 @@ public class FunctionPanel extends JPanel implements ActionListener{
 	@Override
 	public void actionPerformed(ActionEvent event) {
 		CalculatorController calcController = new CalculatorController();
-		
-		if (event.getSource() == btnPlus) {
-			calcController.setOperation(Calculator.PLUS);
-			calcController.setTerm1(getInputValue());
-			display("");
-		} else if (event.getSource() == btnMinus) {
-			calcController.setOperation(Calculator.MINUS);
-			calcController.setTerm1(getInputValue());
-			display("");
-		} else if (event.getSource() == btnMultiply) {
-			calcController.setOperation(Calculator.MULTIPLY);
-			calcController.setTerm1(getInputValue());
-			display("");
-		} else if (event.getSource() == btnDiv) {
-			calcController.setOperation(Calculator.DIV);
-			calcController.setTerm1(getInputValue());
-			display("");
-		} else if (event.getSource() == btnSen) {
-			String result = calcController.trigonometricFunction(getInputValue(), Calculator.SEN)+ "";
-			display(result);
-		} else if (event.getSource() == btnCos) {
-			String result = calcController.trigonometricFunction(getInputValue(), Calculator.COS)+ "";
-			display(result);
-		} else if (event.getSource() == btnTan) {
-			String result = calcController.trigonometricFunction(getInputValue(), Calculator.TAN)+ "";
-			display(result);
-		} else if (event.getSource() == btnResultEquals) {
-			String result = calcController.resultArithmeticOperation(getInputValue()) + "";
-			display(result);
-		} else if (event.getSource() == btnClear) {
-			display("");
-			calcController.clear();
+		try {
+			if (event.getSource() == btnPlus) {
+				calcController.setOperation(Calculator.PLUS);
+				calcController.setTerm1(getInputValue());
+				display("");
+			} else if (event.getSource() == btnMinus) {
+				calcController.setOperation(Calculator.MINUS);
+				calcController.setTerm1(getInputValue());
+				display("");
+			} else if (event.getSource() == btnMultiply) {
+				calcController.setOperation(Calculator.MULTIPLY);
+				calcController.setTerm1(getInputValue());
+				display("");
+			} else if (event.getSource() == btnDiv) {
+				calcController.setOperation(Calculator.DIV);
+				calcController.setTerm1(getInputValue());
+				display("");
+			} else if (event.getSource() == btnSen) {
+				String result = calcController.trigonometricFunction(getInputValue(), Calculator.SIN)+ "";
+				display(result);
+			} else if (event.getSource() == btnCos) {
+				String result = calcController.trigonometricFunction(getInputValue(), Calculator.COS)+ "";
+				display(result + " rad");
+			} else if (event.getSource() == btnTan) {
+				String result = calcController.trigonometricFunction(getInputValue(), Calculator.TAN)+ "";
+				display(result + " rad");
+			} else if (event.getSource() == btnResultEquals) {
+				String result = calcController.resultArithmeticOperation(getInputValue()) + "";
+				display(result + " rad");
+			} else if (event.getSource() == btnClear) {
+				display("");
+				calcController.clear();
+			}
+		} catch (NumberFormatException e) {
+			display("ERROR");
 		}
 	}
 	

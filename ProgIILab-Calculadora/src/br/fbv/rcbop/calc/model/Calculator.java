@@ -6,7 +6,7 @@ public class Calculator {
 	public static final int	DIV					= 3;
 	public static final int	MULTIPLY			= 4;
 	
-	public static final int SEN 				= 5;
+	public static final int SIN 				= 5;
 	public static final int COS 				= 6;
 	public static final int TAN 				= 7;
 
@@ -59,7 +59,7 @@ public class Calculator {
 	public double trigonometricFunction(double term, int operation){
 		double rtn = 0;
 		switch (operation) {
-		case SEN:
+		case SIN:
 			rtn = Math.sin(term);
 			break;
 		case COS:

@@ -86,4 +86,36 @@ public class TestCalculator {
 		calculator.setOperation(Calculator.DIV);
 		assertEquals("24 / 2 must be 12", 12.0, calculator.arithmeticResultOperation(2), 0.0);
 	}
+	
+	@Test
+	public void sinPositiveInput(){
+		assertEquals("sin(2) must be ", 0.90929742682, calculator.trigonometricFunction(2.0, Calculator.SIN), 0.00001);
+	}
+	
+	@Test
+	public void sinNegativeInput(){
+		assertEquals("sin(-5) must be ", 0.95892, calculator.trigonometricFunction(-5.0, Calculator.SIN), 0.0005);
+	}
+	
+	@Test
+	public void cosNegativeInput(){
+		assertEquals("cos(-2) must be ", -0.41614683654, calculator.trigonometricFunction(-2.0, Calculator.COS), 0.000001);
+	}
+	
+	@Test
+	public void cosPositiveInput(){
+		assertEquals("cos(8) must be ", -0.1455000338, calculator.trigonometricFunction(8.0, Calculator.COS), 0.000001);
+	}
+	
+	@Test
+	public void tanPositiveInput(){
+		assertEquals("tan(12) must be ", -0.63585992866, calculator.trigonometricFunction(12.0, Calculator.TAN), 0.000001);
+	}
+	
+	@Test
+	public void tanNegativeInput(){
+		assertEquals("tan(-7) must be ", -0.87144798272, calculator.trigonometricFunction(-7.0, Calculator.TAN), 0.000001);
+	}
+	
+	
 }
