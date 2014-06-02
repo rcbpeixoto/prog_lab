@@ -46,11 +46,14 @@ public class CalculatorController implements ICalculator{
 	public void clear() {
 		Calculator.getInstance().clear();
 	}
-
+	
 	@Override
-	public String resultOperation(double term2) throws IllegalArgumentException {
-		return Calculator.getInstance().resultOperation(term2);
+	public double trigonometricFunction(double term, int operation) {
+		return Calculator.getInstance().trigonometricFunction(term, operation);
 	}
 
-	
+	@Override
+	public double resultArithmeticOperation(double term2) throws IllegalArgumentException {
+		return Calculator.getInstance().arithmeticResultOperation(term2);
+	}
 }

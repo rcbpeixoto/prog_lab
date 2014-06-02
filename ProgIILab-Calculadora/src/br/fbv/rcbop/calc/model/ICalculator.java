@@ -9,5 +9,6 @@ public interface ICalculator {
 	public double getTerm2();
 	public void setTerm2(double term2);
 	public void clear();
-	public String resultOperation(double term2) throws IllegalArgumentException;
+	public double trigonometricFunction(double term, int operation);
+	public double resultArithmeticOperation(double term2) throws IllegalArgumentException;
 }

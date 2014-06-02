@@ -5,6 +5,10 @@ public class Calculator {
 	public static final int	PLUS				= 2;
 	public static final int	DIV					= 3;
 	public static final int	MULTIPLY			= 4;
+	
+	public static final int SEN 				= 5;
+	public static final int COS 				= 6;
+	public static final int TAN 				= 7;
 
 	private int					operation	= -1;
 	
@@ -52,8 +56,26 @@ public class Calculator {
 		term2 = Double.NEGATIVE_INFINITY;
 	}
 	
-	public String resultOperation(double term2) throws IllegalArgumentException {
-		String rtn = new String();
+	public double trigonometricFunction(double term, int operation){
+		double rtn = 0;
+		switch (operation) {
+		case SEN:
+			rtn = Math.sin(term);
+			break;
+		case COS:
+			rtn = Math.cos(term);
+			break;
+		case TAN:
+			rtn = Math.tan(term);
+			break;
+		default:
+			break;
+		}
+		return rtn;
+	}
+	
+	public double arithmeticResultOperation(double term2) throws IllegalArgumentException {
+		double rtn;
 		this.term2 = term2;
 		
 		switch (operation) {
@@ -76,7 +98,7 @@ public class Calculator {
 		default:
 			break;
 		}
-		rtn = term1 + "";
+		rtn = term1;
 		
 		return rtn;
 	}

@@ -29,7 +29,7 @@ public class FunctionPanel extends JPanel implements ActionListener{
 	private JButton btnMinus;
 	private JButton btnMultiply;
 	private JButton btnDiv;
-	private JButton btnEquals;
+	private JButton btnResultEquals;
 	private JButton btnClear;
 	
 	private JTextArea txtField;
@@ -89,9 +89,9 @@ public class FunctionPanel extends JPanel implements ActionListener{
 		btnClear.addActionListener(this);
 		this.add(btnClear);
 
-		btnEquals = new JButton("=");
-		btnEquals.addActionListener(this);
-		this.add(btnEquals);
+		btnResultEquals = new JButton("=");
+		btnResultEquals.addActionListener(this);
+		this.add(btnResultEquals);
 
 		btnPlus = new JButton("+");
 		btnPlus.addActionListener(this);
@@ -118,8 +118,17 @@ public class FunctionPanel extends JPanel implements ActionListener{
 			calcController.setOperation(Calculator.DIV);
 			calcController.setTerm1(getInputValue());
 			display("");
-		} else if (event.getSource() == btnEquals) {
-			String result = calcController.resultOperation(getInputValue());
+		} else if (event.getSource() == btnSen) {
+			String result = calcController.trigonometricFunction(getInputValue(), Calculator.SEN)+ "";
+			display(result);
+		} else if (event.getSource() == btnCos) {
+			String result = calcController.trigonometricFunction(getInputValue(), Calculator.COS)+ "";
+			display(result);
+		} else if (event.getSource() == btnTan) {
+			String result = calcController.trigonometricFunction(getInputValue(), Calculator.TAN)+ "";
+			display(result);
+		} else if (event.getSource() == btnResultEquals) {
+			String result = calcController.resultArithmeticOperation(getInputValue()) + "";
 			display(result);
 		} else if (event.getSource() == btnClear) {
 			display("");
