@@ -93,7 +93,7 @@ public class NumericPanel extends JPanel implements ActionListener{
 		btn0.addActionListener(this);
 		this.add(btn0);
 
-		btnDot = new JButton(".");
+		btnDot = new JButton(new ImageIcon("assets/dot.png"));
 		btnDot.setBackground(Color.WHITE);
 		btnDot.addActionListener(this);
 		this.add(btnDot);

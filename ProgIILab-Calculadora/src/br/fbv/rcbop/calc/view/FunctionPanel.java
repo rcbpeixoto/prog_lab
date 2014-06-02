@@ -22,11 +22,11 @@ public class FunctionPanel extends JPanel implements ActionListener{
 	private JButton btnSen;
 	private JButton btnCos;
 	private JButton btnTan;
-	private JButton btnExp;
-	private JButton btnPlusMinus;
+	//private JButton btnExp;
+	//private JButton btnPlusMinus;
 	private JButton btnPercent;
-	private JButton btnMr;
-	private JButton btnMem;
+	//private JButton btnMr;
+	//private JButton btnMem;
 	private JButton btnPlus;
 	private JButton btnMinus;
 	private JButton btnMultiply;
@@ -44,14 +44,17 @@ public class FunctionPanel extends JPanel implements ActionListener{
 		panelBtnArea.add(this, BorderLayout.EAST);
 		
 		btnSen = new JButton(new ImageIcon("assets/sin.png"));
+		btnSen.setBackground(Color.WHITE);
 		btnSen.addActionListener(this);
 		this.add(btnSen);
 
 		btnCos = new JButton(new ImageIcon("assets/cos.png"));
+		btnCos.setBackground(Color.WHITE);
 		btnCos.addActionListener(this);
 		this.add(btnCos);
 
 		btnTan = new JButton(new ImageIcon("assets/tan.png"));
+		btnTan.setBackground(Color.WHITE);
 		btnTan.addActionListener(this);
 		this.add(btnTan);
 
@@ -64,10 +67,12 @@ public class FunctionPanel extends JPanel implements ActionListener{
 //		this.add(btnPlusMinus);
 
 		btnPercent = new JButton(new ImageIcon("assets/percent.png"));
+		btnPercent.setBackground(Color.WHITE);
 		btnPercent.addActionListener(this);
 		this.add(btnPercent);
 
 		btnDiv = new JButton(new ImageIcon("assets/divide.png"));
+		btnDiv.setBackground(Color.WHITE);
 		btnDiv.addActionListener(this);
 		this.add(btnDiv);
 
@@ -76,6 +81,7 @@ public class FunctionPanel extends JPanel implements ActionListener{
 //		this.add(btnMr);
 
 		btnMultiply = new JButton(new ImageIcon("assets/multiply.png"));
+		btnMultiply.setBackground(Color.WHITE);
 		btnMultiply.addActionListener(this);
 		this.add(btnMultiply);
 
@@ -85,17 +91,21 @@ public class FunctionPanel extends JPanel implements ActionListener{
 
 		btnMinus = new JButton(new ImageIcon("assets/minus.png"));
 		btnMinus.addActionListener(this);
+		btnMinus.setBackground(Color.WHITE);
 		this.add(btnMinus);
 
 		btnClear = new JButton(new ImageIcon("assets/ce.png"));
+		btnClear.setBackground(Color.WHITE);
 		btnClear.addActionListener(this);
 		this.add(btnClear);
 
 		btnResultEquals = new JButton(new ImageIcon("assets/equal.png"));
+		btnResultEquals.setBackground(Color.WHITE);
 		btnResultEquals.addActionListener(this);
 		this.add(btnResultEquals);
 
 		btnPlus = new JButton(new ImageIcon("assets/add.png"));
+		btnPlus.setBackground(Color.WHITE);
 		btnPlus.addActionListener(this);
 		this.add(btnPlus);
 	}
