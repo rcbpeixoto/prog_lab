@@ -1,10 +1,12 @@
 package br.fbv.rcbop.calc.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -26,7 +28,7 @@ public class NumericPanel extends JPanel implements ActionListener{
 	private JButton btn8;
 	private JButton btn9;
 	private JButton btn0;
-	private JButton btn00;
+	private JButton btnFiller;
 	private JButton btnDot;
 	
 	public NumericPanel(JPanel panelBtnArea, JTextArea txtField){
@@ -36,51 +38,63 @@ public class NumericPanel extends JPanel implements ActionListener{
 		this.setLayout(new GridLayout(4,3));
 		panelBtnArea.add(this, BorderLayout.WEST);
 		
-		btn1 = new JButton("1");
+		btn1 = new JButton(new ImageIcon("assets/1.png"));
+		btn1.setBackground(Color.WHITE);
 		btn1.addActionListener(this);
 		this.add(btn1);
 		
-		btn2 = new JButton("2");
+		btn2 = new JButton(new ImageIcon("assets/2.png"));
+		btn2.setBackground(Color.WHITE);
 		btn2.addActionListener(this);
 		this.add(btn2);
 
-		btn3 = new JButton("3");
+		btn3 = new JButton(new ImageIcon("assets/3.png"));
+		btn3.setBackground(Color.WHITE);
 		btn3.addActionListener(this);
 		this.add(btn3);
 
-		btn4 = new JButton("4");
+		btn4 = new JButton(new ImageIcon("assets/4.png"));
+		btn4.setBackground(Color.WHITE);
 		btn4.addActionListener(this);
 		this.add(btn4);
 
-		btn5 = new JButton("5");
+		btn5 = new JButton(new ImageIcon("assets/5.png"));
+		btn5.setBackground(Color.WHITE);
 		btn5.addActionListener(this);
 		this.add(btn5);
 
-		btn6 = new JButton("6");
+		btn6 = new JButton(new ImageIcon("assets/6.png"));
+		btn6.setBackground(Color.WHITE);
 		btn6.addActionListener(this);
 		this.add(btn6);
 		
-		btn7 = new JButton("7");
+		btn7 = new JButton(new ImageIcon("assets/7.png"));
+		btn7.setBackground(Color.WHITE);
 		btn7.addActionListener(this);
 		this.add(btn7);
 
-		btn8 = new JButton("8");
+		btn8 = new JButton(new ImageIcon("assets/8.png"));
+		btn8.setBackground(Color.WHITE);
 		btn8.addActionListener(this);
 		this.add(btn8);
 
-		btn9 = new JButton("9");
+		btn9 = new JButton(new ImageIcon("assets/9.png"));
+		btn9.setBackground(Color.WHITE);
 		btn9.addActionListener(this);
 		this.add(btn9);
 		
-		btn0 = new JButton("0");
+		btnFiller = new JButton();
+		btnFiller.setBackground(Color.WHITE);
+		btnFiller.addActionListener(this);
+		this.add(btnFiller);
+		
+		btn0 = new JButton(new ImageIcon("assets/0.png"));
+		btn0.setBackground(Color.WHITE);
 		btn0.addActionListener(this);
 		this.add(btn0);
-		
-		btn00 = new JButton("00");
-		btn00.addActionListener(this);
-		this.add(btn00);
-		
+
 		btnDot = new JButton(".");
+		btnDot.setBackground(Color.WHITE);
 		btnDot.addActionListener(this);
 		this.add(btnDot);
 	}
@@ -89,9 +103,7 @@ public class NumericPanel extends JPanel implements ActionListener{
 	public void actionPerformed(ActionEvent event) {
 		if (event.getSource() == btn0) {
 			txtField.append("0");
-		} else if (event.getSource() == btn00) {
-			txtField.append("00");
-		} else if (event.getSource() == btn1) {
+		}else if (event.getSource() == btn1) {
 			txtField.append("1");
 		} else if (event.getSource() == btn2) {
 			txtField.append("2");

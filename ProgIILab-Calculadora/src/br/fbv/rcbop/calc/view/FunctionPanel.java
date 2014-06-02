@@ -1,10 +1,12 @@
 package br.fbv.rcbop.calc.view;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -38,62 +40,62 @@ public class FunctionPanel extends JPanel implements ActionListener{
 		
 		this.txtField = txtField;
 		
-		this.setLayout(new GridLayout(7, 2));
+		this.setLayout(new GridLayout(5, 2));
 		panelBtnArea.add(this, BorderLayout.EAST);
 		
-		btnSen = new JButton("Sen");
+		btnSen = new JButton(new ImageIcon("assets/sin.png"));
 		btnSen.addActionListener(this);
 		this.add(btnSen);
 
-		btnCos = new JButton("Cos");
+		btnCos = new JButton(new ImageIcon("assets/cos.png"));
 		btnCos.addActionListener(this);
 		this.add(btnCos);
 
-		btnTan = new JButton("Tan");
+		btnTan = new JButton(new ImageIcon("assets/tan.png"));
 		btnTan.addActionListener(this);
 		this.add(btnTan);
 
-		btnExp = new JButton("EXP");
-		btnExp.addActionListener(this);
-		this.add(btnExp);
+//		btnExp = new JButton("EXP");
+//		btnExp.addActionListener(this);
+//		this.add(btnExp);
 
-		btnPlusMinus = new JButton("+-");
-		btnPlusMinus.addActionListener(this);
-		this.add(btnPlusMinus);
+//		btnPlusMinus = new JButton("+-");
+//		btnPlusMinus.addActionListener(this);
+//		this.add(btnPlusMinus);
 
-		btnPercent = new JButton("%");
+		btnPercent = new JButton(new ImageIcon("assets/percent.png"));
 		btnPercent.addActionListener(this);
 		this.add(btnPercent);
 
-		btnDiv = new JButton("/");
+		btnDiv = new JButton(new ImageIcon("assets/divide.png"));
 		btnDiv.addActionListener(this);
 		this.add(btnDiv);
 
-		btnMr = new JButton("MR");
-		btnMr.addActionListener(this);
-		this.add(btnMr);
+//		btnMr = new JButton("MR");
+//		btnMr.addActionListener(this);
+//		this.add(btnMr);
 
-		btnMultiply = new JButton("*");
+		btnMultiply = new JButton(new ImageIcon("assets/multiply.png"));
 		btnMultiply.addActionListener(this);
 		this.add(btnMultiply);
 
-		btnMem = new JButton("MEM");
-		btnMem.addActionListener(this);
-		this.add(btnMem);
+//		btnMem = new JButton("MEM");
+//		btnMem.addActionListener(this);
+//		this.add(btnMem);
 
-		btnMinus = new JButton("-");
+		btnMinus = new JButton(new ImageIcon("assets/minus.png"));
 		btnMinus.addActionListener(this);
 		this.add(btnMinus);
 
-		btnClear = new JButton("CE");
+		btnClear = new JButton(new ImageIcon("assets/ce.png"));
 		btnClear.addActionListener(this);
 		this.add(btnClear);
 
-		btnResultEquals = new JButton("=");
+		btnResultEquals = new JButton(new ImageIcon("assets/equal.png"));
 		btnResultEquals.addActionListener(this);
 		this.add(btnResultEquals);
 
-		btnPlus = new JButton("+");
+		btnPlus = new JButton(new ImageIcon("assets/add.png"));
 		btnPlus.addActionListener(this);
 		this.add(btnPlus);
 	}
@@ -129,7 +131,7 @@ public class FunctionPanel extends JPanel implements ActionListener{
 				display(result + " rad");
 			} else if (event.getSource() == btnResultEquals) {
 				String result = calcController.resultArithmeticOperation(getInputValue()) + "";
-				display(result + " rad");
+				display(result);
 			} else if (event.getSource() == btnClear) {
 				display("");
 				calcController.clear();

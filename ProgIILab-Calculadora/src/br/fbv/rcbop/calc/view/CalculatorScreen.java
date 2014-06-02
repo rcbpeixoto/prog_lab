@@ -1,7 +1,10 @@
 package br.fbv.rcbop.calc.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.Font;
 
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
@@ -25,7 +28,9 @@ public class CalculatorScreen extends JFrame {
 	}
 
 	private void initFrame() {
-		this.setResizable(false);
+		ImageIcon img = new ImageIcon("assets/icon.png");
+        this.setIconImage(img.getImage());
+		this.setResizable(true);
 		this.setVisible(true);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 	}
@@ -45,9 +50,15 @@ public class CalculatorScreen extends JFrame {
 	}
 
 	private void createDisplayField() {
+		Dimension d = new Dimension(100, 50);
+		Font font = new Font("Verdana", Font.BOLD, 20);
+		
 		txtField = new JTextArea(1, 10);
-		this.add(txtField, BorderLayout.NORTH);
+		txtField.setFont(font);
+		txtField.setPreferredSize(d);
 		txtField.setEditable(false);
+		
+		this.add(txtField, BorderLayout.NORTH);
 	}
 
 	private void createFunctionsArea() {
