@@ -2,13 +2,16 @@ package br.fbv.rcbop.calc.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.FlowLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JPanel;
+import javax.swing.JRadioButton;
 import javax.swing.JTextArea;
 
 import br.fbv.rcbop.calc.controller.CalculatorController;
@@ -35,28 +38,40 @@ public class FunctionPanel extends JPanel implements ActionListener{
 	private JButton btnClear;
 	
 	private JTextArea txtField;
+
+	private JRadioButton degree;
+	private JRadioButton radian;
+
+	private JPanel unityPanel;
+	private JPanel topPanel;
 	
 	public FunctionPanel(JPanel panelBtnArea, JTextArea txtField){
 		
 		this.txtField = txtField;
-		
-		this.setLayout(new GridLayout(5, 2));
 		panelBtnArea.add(this, BorderLayout.EAST);
+		
+		this.setLayout(new BorderLayout());
+		topPanel = new JPanel(new GridLayout(5, 2));
+		this.add(topPanel, BorderLayout.SOUTH);
+		
+		unityPanel = new JPanel(new FlowLayout());
+		unityPanel.setBackground(Color.WHITE);
+		this.add(unityPanel, BorderLayout.NORTH);
 		
 		btnSen = new JButton(new ImageIcon("assets/sin.png"));
 		btnSen.setBackground(Color.WHITE);
 		btnSen.addActionListener(this);
-		this.add(btnSen);
+		topPanel.add(btnSen);
 
 		btnCos = new JButton(new ImageIcon("assets/cos.png"));
 		btnCos.setBackground(Color.WHITE);
 		btnCos.addActionListener(this);
-		this.add(btnCos);
+		topPanel.add(btnCos);
 
 		btnTan = new JButton(new ImageIcon("assets/tan.png"));
 		btnTan.setBackground(Color.WHITE);
 		btnTan.addActionListener(this);
-		this.add(btnTan);
+		topPanel.add(btnTan);
 
 //		btnExp = new JButton("EXP");
 //		btnExp.addActionListener(this);
@@ -69,12 +84,12 @@ public class FunctionPanel extends JPanel implements ActionListener{
 		btnPercent = new JButton(new ImageIcon("assets/percent.png"));
 		btnPercent.setBackground(Color.WHITE);
 		btnPercent.addActionListener(this);
-		this.add(btnPercent);
+		topPanel.add(btnPercent);
 
 		btnDiv = new JButton(new ImageIcon("assets/divide.png"));
 		btnDiv.setBackground(Color.WHITE);
 		btnDiv.addActionListener(this);
-		this.add(btnDiv);
+		topPanel.add(btnDiv);
 
 //		btnMr = new JButton("MR");
 //		btnMr.addActionListener(this);
@@ -83,7 +98,7 @@ public class FunctionPanel extends JPanel implements ActionListener{
 		btnMultiply = new JButton(new ImageIcon("assets/multiply.png"));
 		btnMultiply.setBackground(Color.WHITE);
 		btnMultiply.addActionListener(this);
-		this.add(btnMultiply);
+		topPanel.add(btnMultiply);
 
 //		btnMem = new JButton("MEM");
 //		btnMem.addActionListener(this);
@@ -92,22 +107,39 @@ public class FunctionPanel extends JPanel implements ActionListener{
 		btnMinus = new JButton(new ImageIcon("assets/minus.png"));
 		btnMinus.addActionListener(this);
 		btnMinus.setBackground(Color.WHITE);
-		this.add(btnMinus);
+		topPanel.add(btnMinus);
 
 		btnClear = new JButton(new ImageIcon("assets/ce.png"));
 		btnClear.setBackground(Color.WHITE);
 		btnClear.addActionListener(this);
-		this.add(btnClear);
+		topPanel.add(btnClear);
 
 		btnResultEquals = new JButton(new ImageIcon("assets/equal.png"));
 		btnResultEquals.setBackground(Color.WHITE);
 		btnResultEquals.addActionListener(this);
-		this.add(btnResultEquals);
+		topPanel.add(btnResultEquals);
 
 		btnPlus = new JButton(new ImageIcon("assets/add.png"));
 		btnPlus.setBackground(Color.WHITE);
 		btnPlus.addActionListener(this);
-		this.add(btnPlus);
+		topPanel.add(btnPlus);
+		
+		degree = new JRadioButton("Degree");
+		degree.addActionListener(this);
+		degree.setBackground(Color.WHITE);
+
+		radian = new JRadioButton("Radian");
+		radian.addActionListener(this);
+		radian.setBackground(Color.WHITE);
+
+		ButtonGroup group = new ButtonGroup();
+		group.add(degree);
+		group.add(radian);
+		
+		unityPanel.add(degree);
+		unityPanel.add(radian);
+		
+		degree.setSelected(true);
 	}
 
 	@Override
@@ -132,19 +164,23 @@ public class FunctionPanel extends JPanel implements ActionListener{
 				display("");
 			} else if (event.getSource() == btnSen) {
 				String result = calcController.trigonometricFunction(getInputValue(), Calculator.SIN)+ "";
-				display(result);
+				display(result + (calcController.getUnity() == Calculator.RADIAN ? " rad" : " degree"));
 			} else if (event.getSource() == btnCos) {
 				String result = calcController.trigonometricFunction(getInputValue(), Calculator.COS)+ "";
-				display(result + " rad");
+				display(result + (calcController.getUnity() == Calculator.RADIAN ? " rad" : " degree"));
 			} else if (event.getSource() == btnTan) {
 				String result = calcController.trigonometricFunction(getInputValue(), Calculator.TAN)+ "";
-				display(result + " rad");
+				display(result + (calcController.getUnity() == Calculator.RADIAN ? " rad" : " degree"));
 			} else if (event.getSource() == btnResultEquals) {
 				String result = calcController.resultArithmeticOperation(getInputValue()) + "";
 				display(result);
 			} else if (event.getSource() == btnClear) {
 				display("");
 				calcController.clear();
+			} else if (event.getSource() == degree) {
+				calcController.setUnity(Calculator.DEGREE);
+			} else if (event.getSource() == radian){
+				calcController.setUnity(Calculator.RADIAN);
 			}
 		} catch (NumberFormatException e) {
 			display("ERROR");

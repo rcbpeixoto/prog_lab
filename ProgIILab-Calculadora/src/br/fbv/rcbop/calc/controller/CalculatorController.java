@@ -56,4 +56,14 @@ public class CalculatorController implements ICalculator{
 	public double resultArithmeticOperation(double term2) throws IllegalArgumentException {
 		return Calculator.getInstance().arithmeticResultOperation(term2);
 	}
+
+	@Override
+	public void setUnity(int unity) {
+		Calculator.getInstance().setUnity(unity);
+	}
+
+	@Override
+	public int getUnity() {
+		return Calculator.getInstance().getUnity();
+	}
 }

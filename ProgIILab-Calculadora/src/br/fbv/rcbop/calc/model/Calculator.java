@@ -9,8 +9,12 @@ public class Calculator {
 	public static final int SIN 				= 5;
 	public static final int COS 				= 6;
 	public static final int TAN 				= 7;
+	
+	public static final int DEGREE 				= 8;
+	public static final int RADIAN 				= 9;
 
 	private int					operation	= -1;
+	private int					unity 		= -1;
 	
 	private double				term1		= Double.NEGATIVE_INFINITY;
 	private double				term2		= Double.NEGATIVE_INFINITY;
@@ -51,6 +55,14 @@ public class Calculator {
 		this.term2 = term2;
 	}
 	
+	public int getUnity() {
+		return unity;
+	}
+
+	public void setUnity(int unity) {
+		this.unity = unity;
+	}
+	
 	public void clear(){
 		term1 = Double.NEGATIVE_INFINITY;
 		term2 = Double.NEGATIVE_INFINITY;
@@ -60,13 +72,31 @@ public class Calculator {
 		double rtn = 0;
 		switch (operation) {
 		case SIN:
-			rtn = Math.sin(term);
+			if (unity == RADIAN){
+				rtn = Math.sin(term);
+			}
+			else {
+				double tmp1 = Math.toRadians(term);
+				rtn = Math.sin(tmp1);
+			}
 			break;
 		case COS:
-			rtn = Math.cos(term);
+			if (unity == RADIAN) {
+				rtn = Math.cos(term);
+			}
+			else {
+				double tmp1 = Math.toRadians(term);
+				rtn = Math.cos(tmp1);
+			}
 			break;
 		case TAN:
-			rtn = Math.tan(term);
+			if (unity == RADIAN) {
+				rtn = Math.tan(term);
+			}
+			else {
+				double tmp1 = Math.toRadians(term);
+				rtn = Math.tan(tmp1);
+			}
 			break;
 		default:
 			break;

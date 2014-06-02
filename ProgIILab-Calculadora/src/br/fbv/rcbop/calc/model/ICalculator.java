@@ -11,4 +11,6 @@ public interface ICalculator {
 	public void clear();
 	public double trigonometricFunction(double term, int operation);
 	public double resultArithmeticOperation(double term2) throws IllegalArgumentException;
+	public void setUnity(int unity);
+	public int 	getUnity();
 }
